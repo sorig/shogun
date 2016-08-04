@@ -119,6 +119,16 @@ SGVector<float64_t> CKernelExpFamily::log_pdf_multiple(SGMatrix<float64_t> X)
 	return m_impl->log_pdf(X);
 }
 
+float64_t CKernelExpFamily::objective(SGMatrix<float64_t> X)
+{
+	auto D = m_impl->get_num_dimensions();
+	REQUIRE(X.matrix, "Given observations cannot be empty\n");
+	REQUIRE(X.num_rows==D, "Dimension of given observations (%d) must match the estimator's (%d)\n", X.num_rows, D);
+	REQUIRE(X.num_cols>0, "Number of given observations (%d) must be positive.\n", X.num_cols);
+
+	return m_impl->objective(X);
+}
+
 SGVector<float64_t> CKernelExpFamily::get_alpha_beta()
 {
 	return m_impl->get_alpha_beta();

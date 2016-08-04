@@ -57,6 +57,8 @@ public:
 	virtual SGVector<float64_t> grad(SGVector<float64_t> x);
 	virtual SGMatrix<float64_t> hessian(SGVector<float64_t> x);
 
+	virtual float64_t objective(SGMatrix<float64_t> X);
+
 	virtual const char* get_name() const { return "KernelExpFamily"; }
 
 	SGVector<float64_t> get_alpha_beta();

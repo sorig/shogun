@@ -64,9 +64,10 @@ public :
 
 	float64_t log_pdf(SGVector<float64_t> x);
 	SGVector<float64_t> log_pdf(SGMatrix<float64_t> X);
-
 	SGVector<float64_t> grad(SGVector<float64_t> x);
 	SGMatrix<float64_t> hessian(SGVector<float64_t> x);
+
+	float64_t objective(SGMatrix<float64_t> X);
 
 	SGVector<float64_t> get_alpha_beta() const { return m_alpha_beta; }
 
